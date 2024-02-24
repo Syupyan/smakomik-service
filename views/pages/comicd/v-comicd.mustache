@@ -1,0 +1,344 @@
+{{> views/partials/header }}
+{{> views/partials/sidebar }}
+<!-- Main content -->
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card card-outline">
+                    <div class="card-header">
+                        <a class="btn btn-warning btn-sm" href="/comic">
+                            <i class="fas fa-arrow-left">
+                            </i>
+                        </a>
+                        <div class="float-right">
+                            <!-- <a class="btn btn-primary btn-xl" href="/comic/create">
+                                <i class="fas fa-plus"> -->
+
+                            {{#comicDetail}}
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                data-target="#modal-lg-chapter-create">
+                                <i class="fas fa-book">
+                                </i>
+                                Chapter
+                            </button>
+                            <!-- Tampilkan detail komik jika ada -->
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                data-target="#modal-lg-edit">
+                                <i class="fas fa-edit">
+                                </i>
+                                Detail
+                            </button>
+                            {{/comicDetail}}
+                            {{^comicDetail}}
+                            <!-- Tampilkan sesuatu jika tidak ada detail komik -->
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                data-target="#modal-lg-create">
+                                <i class="fas fa-edit">
+                                </i>
+                                Detail
+                            </button>
+                            {{/comicDetail}}
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <section class="content">
+
+                            <!-- Default box -->
+                            <div class="card card-solid">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            <div class="col-12">
+                                                <img src="/assets/comic-image/comic-cover/{{ comic.Image }}"
+                                                    class="product-image" alt="Product Image"
+                                                    style="border-radius: 10px; height: 500px;">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <h3 class="my-3">{{ comic.NameC }}</h3>
+                                            <div class="bg-gray py-2 px-3 mt-4">
+                                                <h4 class="mt-0">
+                                                    <small>{{ comicDetail.Status }}</small>
+                                                </h4>
+                                            </div>
+                                            <hr>
+                                            <h5>Genre: <b>{{ comic.Genre }}</b></h5>
+                                            <hr>
+                                            <h5>Country: <b>{{ comic.CountryC }}</b></h5>
+                                            <hr>
+                                            <h5>Comic Artist: <b>{{ comicDetail.ComicArtist }}</b></h5>
+                                            <hr>
+                                            <h5>Read Age: <b>{{ comicDetail.ReaderAge }}</b></h5>
+                                            <hr>
+                                            <h5>How read: <b>{{ comicDetail.HowRead}}</b></h5>
+                                            <hr>
+                                            {{#comicChap}}
+                                            {{IdChapter}}
+                                            {{/comicChap}}
+
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <nav class="w-100">
+                                            <div class="nav nav-tabs" id="product-tab" role="tablist">
+                                                <a class="nav-item nav-link" id="product-desc-tab" data-toggle="tab"
+                                                    href="#product-desc" role="tab" aria-controls="product-desc"
+                                                    aria-selected="true">Description</a>
+                                                <a class="nav-item nav-link active" id="product-comments-tab"
+                                                    data-toggle="tab" href="#product-comments" role="tab"
+                                                    aria-controls="product-comments" aria-selected="false">Chapter</a>
+                                            </div>
+                                        </nav>
+                                        <div class="tab-content p-3" id="nav-tabContent">
+                                            <div class="tab-pane fade" id="product-desc" role="tabpanel"
+                                                aria-labelledby="product-desc-tab">{{ comicDetail.Description}}</div>
+                                            <div class="tab-pane fade show active" id="product-comments" role="tabpanel"
+                                                aria-labelledby="product-comments-tab">
+                                                <div class="button-column">
+                                                    {{#comicChap}}
+                                                    <div class="button-wrapper">
+                                                        <div style="margin-left: 10px;">
+                                                            <form method="POST"
+                                                                action="/method/comicchapter/delete/{{IdSub}}">
+
+                                                                <a class="btn btn-primary btn-sm"
+                                                                    href="/comic/detail/images/{{IdSub}}">
+                                                                    <i class="fas fa-image">
+                                                                    </i>
+                                                                    Image
+                                                                </a>
+                                                                <button type="button" class="btn btn-info btn-sm"
+                                                                    data-toggle="modal"
+                                                                    data-target="#modal-lg-chapter-edit{{IdSub}}">
+                                                                    <i class="fas fa-pencil-alt">
+                                                                    </i>
+                                                                    Edit
+                                                                </button>
+                                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                                    <i class="fas fa-trash">
+                                                                    </i>
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+
+                                                        </div>
+                                                        <div class="bg-secondary"
+                                                            style="margin-left: 10px; border-radius: 10px;">
+                                                            <span class="title"><b>{{Name}}:</b></span>
+                                                            <span style="margin-right: 10px;"></span>
+                                                            <!-- Spasi di sebelah kanan -->
+                                                        </div>
+                                                        <div class="bg-success"
+                                                            style="margin-left: 3px; border-radius: 10px;">
+                                                            <span class="title">{{NameSub}}</span>
+                                                            <span style="margin-right: 10px;"></span>
+                                                            <!-- Spasi di sebelah kanan -->
+                                                        </div>
+
+                                                    </div>
+                                                    {{/comicChap}}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<div class="modal fade" id="modal-lg-create">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Detail Comic</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/method/comicdetail/create/{{ comic.IdComic }}" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input type="text" name="status" class="form-control" placeholder="Status">
+                    </div>
+                    <div class="form-group">
+                        <label>Comic Artist</label>
+                        <input type="text" name="comic_artist" class="form-control" placeholder="Comic Artist">
+                    </div>
+                    <div class="form-group">
+                        <label>Reader Age</label>
+                        <input type="text" name="reader_age" class="form-control" placeholder="Reader Age">
+                    </div>
+                    <div class="form-group">
+                        <label>How Read</label>
+                        <input type="text" name="how_read" class="form-control" placeholder="How Read">
+                    </div>
+                    <!-- textarea -->
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" name="description" rows="3" placeholder="Description"></textarea>
+                    </div>
+            </div>
+            <div class="float-right">
+                <div class="modal-footer ">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- /.content-wrapper -->
+<div class="modal fade" id="modal-lg-edit">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Detail Comic</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/method/comicdetail/update/{{ comic.IdComic }}" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input type="text" name="status" value="{{ comicDetail.Status }}" class="form-control"
+                            placeholder="Status">
+                    </div>
+                    <div class="form-group">
+                        <label>Comic Artist</label>
+                        <input type="text" name="comic_artist" value="{{ comicDetail.ComicArtist }}"
+                            class="form-control" placeholder="Comic Artist">
+                    </div>
+                    <div class="form-group">
+                        <label>Reader Age</label>
+                        <input type="text" name="reader_age" value="{{ comicDetail.ReaderAge }}" class="form-control"
+                            placeholder="Reader Age">
+                    </div>
+                    <div class="form-group">
+                        <label>How Read</label>
+                        <input type="text" name="how_read" value="{{ comicDetail.HowRead }}" class="form-control"
+                            placeholder="How Read">
+                    </div>
+                    <!-- textarea -->
+                    <div class="form-group">
+                        <label>Textarea</label>
+                        <textarea class="form-control" name="description" rows="3"
+                            placeholder="Description">{{ comicDetail.Description }}</textarea>
+                    </div>
+            </div>
+            <div class="float-right">
+                <div class="modal-footer ">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- chapter -->
+<div class="modal fade" id="modal-lg-chapter-create">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Chapter Comic</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/method/comicchapter/create/{{ comic.IdComic }}"
+                    enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label>Name Chapter</label>
+                        <input type="text" name="name" class="form-control" placeholder="Name Sub">
+                    </div>
+                    <div class="form-group">
+                        <label>Sub Chapter</label>
+                        <input type="text" name="name_sub" class="form-control" placeholder="Sub comic">
+                    </div>
+            </div>
+            <div class="float-right">
+                <div class="modal-footer ">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- /.content-wrapper -->
+{{#comicChap}}
+<div class="modal fade" id="modal-lg-chapter-edit{{IdSub}}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Chapter Comic</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/method/comicchapter/update/{{ IdSub }}" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label>Name Chapter</label>
+                        <input type="text" name="name" value="{{Name}}" class="form-control" placeholder="Name Sub">
+                    </div>
+                    <div class="form-group">
+                        <label>Sub Chapter</label>
+                        <input type="text" name="name_sub" value="{{NameSub}}" class="form-control"
+                            placeholder="Sub Comic">
+                    </div>
+            </div>
+            <div class="float-right">
+                <div class="modal-footer ">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+{{/comicChap}}
+<!-- /.modal -->
+{{> views/partials/footer }}

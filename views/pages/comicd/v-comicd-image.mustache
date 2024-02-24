@@ -1,0 +1,178 @@
+{{> views/partials/header }}
+{{> views/partials/sidebar }}
+<!-- Main content -->
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card card-outline">
+                    <div class="card-header">
+                        <a class="btn btn-warning btn-sm" href="/comic/detail/{{comicid}}">
+                            <i class="fas fa-arrow-left">
+                            </i>
+                        </a>
+                        <div class="float-right">
+                            <!-- <a class="btn btn-primary btn-xl" href="/comic/create">
+                                <i class="fas fa-plus"> -->
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                data-target="#modal-lg-image-create">
+                                <i class="fas fa-image">
+                                </i>
+                                Image
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-12">
+                            <div class="card card-primary">
+                                <div class="card-body">
+                                    <div class="row">
+                                        {{#subbtns}}
+                                        <div class="col-sm-2">
+                                            <div class="position-relative">
+                                                <a style="height: 1px;" href="/assets/comic-image/comic-chapter/{{Images}}"
+                                                    data-toggle="lightbox" data-title="sample 1 - white"
+                                                    data-gallery="gallery">
+                                                    <img src="/assets/comic-image/comic-chapter/{{Images}}"
+                                                        class="img-fluid mb-2" style="width: 200px; height: 180px;"
+                                                        alt="white sample" />
+                                                </a>
+                                                <div class="d-flex justify-content-between position-absolute"
+                                                    style="top: 0; left: 0; right: 0;">
+                                                    <form method="POST"
+                                                    action="/method/chapterimage/delete/{{IdImage}}">
+                                                    <button type="button" class="btn btn-info btn-sm"
+                                                    data-toggle="modal"
+                                                    data-target="#modal-lg-chapter-edit{{IdImage}}">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                </button>
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash">
+                                                        </i>
+                                                    </button>
+                                                </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        {{/subbtns}}
+                                        {{^subbtns}}
+                                        <section class="content">
+                                            <div class="error-page">
+                                              <div class="error-content">
+                                                <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Content not found.</h3>
+                                      
+                                                <p>
+                                                 Data tidak ditemukan
+                                                </p>
+                                      
+                                              </div>
+                                              <!-- /.error-content -->
+                                            </div>
+                                            <!-- /.error-page -->
+                                          </section>
+                                        {{/subbtns}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- /.modal -->
+<!-- chapter -->
+<div class="modal fade" id="modal-lg-image-create">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Upload Images</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/method/chapterimage/upload/{{ id }}"
+                    enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label>Images</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="file[]" id="exampleInputFile" multiple>
+                            <label class="custom-file-label">Choose file</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+            <div class="float-right">
+                <div class="modal-footer ">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- /.content-wrapper -->
+{{#subbtns}}
+<div class="modal fade" id="modal-lg-chapter-edit{{IdImage}}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Images</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/method/chapterimage/update/{{ IdImage }}" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label>Images</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="file" id="exampleInputFile">
+                            <label class="custom-file-label">Choose file</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+            <div class="float-right">
+                <div class="modal-footer ">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+{{/subbtns}}
+{{> views/partials/footer }}
