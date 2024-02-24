@@ -1,7 +1,7 @@
 package comicbooks
 
 type Comic_books struct {
-	IdComic  int64  `gorm:"primaryKey" json:"id_comic" form:"id_comic"`
+	IdComic  int64  `gorm:"primaryKey;autoIncrement" json:"id_comic" form:"id_comic"`
 	NameC    string `gorm:"Varchar(300)" json:"name_c" form:"name_c"`
 	Genre    string `gorm:"Varchar(300)" json:"genre" form:"genre"`
 	Image    string `gorm:"Varchar(300)" json:"image" form:"image"`
