@@ -34,7 +34,7 @@ func GetNewComics(c *fiber.Ctx) error {
 		return c.Status(401).SendString("Unauthorized")
 	}
 	var newcomics []comicbooks.Comic_books
-	if err := config.ConnDb().Limit(4).Find(&newcomics).Error; err != nil {
+	if err := config.ConnDb().Order("id_comic DESC").Limit(4).Find(&newcomics).Error; err != nil {
 		return c.Status(500).SendString(err.Error())
 	}
 	return c.Status(fiber.StatusOK).JSON(newcomics)
