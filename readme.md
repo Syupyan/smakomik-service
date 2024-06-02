@@ -17,10 +17,6 @@
 
 Aplikasi Smakomik Service adalah platform yang digunakan untuk mengelola komik. Pada gambar Anda dapat melihat tampilan antarmuka dari Smakomik Service. Aplikasi ini dibangun menggunakan bahasa pemrograman Golang dengan framework Fiber untuk backend dan Bootstrap untuk antarmuka pengguna (frontend).
 
-## Pengenalan 📚
-
-Aplikasi Smakomik Service adalah platform yang digunakan untuk mengelola komik. Pada gambar Anda dapat melihat tampilan antarmuka dari Smakomik Service. Aplikasi ini dibangun menggunakan bahasa pemrograman Golang dengan framework Fiber untuk backend dan Bootstrap untuk antarmuka pengguna (frontend).
-
 ### Fitur Utama:
 - **Informasi Komik**: Menampilkan detail komik termasuk judul, genre, negara asal, nama artis komik, batas usia, dan cara membaca.
 - **Pengelolaan Chapter**: Memungkinkan admin untuk menambah, mengedit, atau menghapus chapter komik.
