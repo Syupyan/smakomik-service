@@ -8,7 +8,7 @@
 
 <p align="center">SMAKOMIK Service</p>
 
-[![Golang](https://img.shields.io/badge/Golang-v1.19-blue)](https://golang.org/doc/go1.19)[![Fiber](https://img.shields.io/badge/Fiber-v2.21-green)](https://docs.gofiber.io/guide/v2)[![Bootstrap](https://img.shields.io/badge/Bootstrap-v5.3-purple)](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+[![Golang](https://img.shields.io/badge/Golang-v1.19-blue)](https://golang.org/doc/go1.19) [![Fiber](https://img.shields.io/badge/Fiber-v2.21-green)](https://docs.gofiber.io/guide/v2) [![Bootstrap](https://img.shields.io/badge/Bootstrap-v5.3-purple)](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 
 <kbd>[![BIMA POLITALA](https://imgur.com/6IC0s64.png)](https://imgur.com/6IC0s64.png)</kbd>
