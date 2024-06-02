@@ -17,14 +17,18 @@
 
 Aplikasi Smakomik Service adalah platform yang digunakan untuk mengelola komik. Pada gambar Anda dapat melihat tampilan antarmuka dari Smakomik Service. Aplikasi ini dibangun menggunakan bahasa pemrograman Golang dengan framework Fiber untuk backend dan Bootstrap untuk antarmuka pengguna (frontend).
 
-Fitur Utama:
-Informasi Komik: Menampilkan detail komik termasuk judul, genre, negara asal, nama artis komik, batas usia, dan cara membaca.
-Pengelolaan Chapter: Memungkinkan admin untuk menambah, mengedit, atau menghapus chapter komik.
-Deskripsi Komik: Menyediakan bagian untuk memasukkan deskripsi komik yang lebih mendalam.
-Edit dan Hapus: Admin dapat mengedit informasi komik atau menghapusnya jika diperlukan.
-Pengelolaan Gambar: Admin dapat mengunggah atau mengedit gambar sampul komik.
-Detail Chapter: Admin dapat melihat dan mengelola chapter yang ada di komik tersebut.
+## Pengenalan 📚
 
-Teknologi yang Digunakan:
-Backend: Golang dengan Fiber framework.
-Frontend: Bootstrap untuk membuat antarmuka yang responsif dan user-friendly.
+Aplikasi Smakomik Service adalah platform yang digunakan untuk mengelola komik. Pada gambar Anda dapat melihat tampilan antarmuka dari Smakomik Service. Aplikasi ini dibangun menggunakan bahasa pemrograman Golang dengan framework Fiber untuk backend dan Bootstrap untuk antarmuka pengguna (frontend).
+
+### Fitur Utama:
+- **Informasi Komik**: Menampilkan detail komik termasuk judul, genre, negara asal, nama artis komik, batas usia, dan cara membaca.
+- **Pengelolaan Chapter**: Memungkinkan admin untuk menambah, mengedit, atau menghapus chapter komik.
+- **Deskripsi Komik**: Menyediakan bagian untuk memasukkan deskripsi komik yang lebih mendalam.
+- **Edit dan Hapus**: Admin dapat mengedit informasi komik atau menghapusnya jika diperlukan.
+- **Pengelolaan Gambar**: Admin dapat mengunggah atau mengedit gambar sampul komik.
+- **Detail Chapter**: Admin dapat melihat dan mengelola chapter yang ada di komik tersebut.
+
+### Teknologi yang Digunakan:
+- **Backend**: Golang dengan Fiber framework.
+- **Frontend**: Bootstrap untuk membuat antarmuka yang responsif dan user-friendly.
